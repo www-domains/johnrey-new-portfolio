@@ -376,9 +376,10 @@ section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
 .portfolio-card:hover .portfolio-overlay p { transform: translateY(-2px); }
 
 .portfolio-links {
-    margin-bottom: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+    margin-bottom: -10px; display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
     transform: translateY(0); opacity: 1;
     transition: transform 0.4s ease 0.3s, opacity 0.4s ease 0.3s;
+    height: 100px;
 }
 .portfolio-card:hover .portfolio-links { transform: translateY(-2px); opacity: 1; }
 
@@ -666,23 +667,47 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(100, 255, 218, 0
     .map-container iframe { height: 200px; }
 
     /* Portfolio adjustments for mobile */
+    .portfolio-grid { gap: 1.5rem; } /* Reduce gap on mobile */
     .portfolio-image { aspect-ratio: 16 / 9; } /* Maintain image aspect ratio */
     .portfolio-overlay {
         position: relative; /* Change from absolute to stack below image */
         opacity: 1; /* Always visible */
         background: var(--light-bg); /* Give it a solid background */
-        padding: 1rem;
+        padding: 1.5rem 1rem;
         border-top: 1px solid rgba(100, 255, 218, 0.15); /* Add separator */
+        border-radius: 0 0 10px 10px; /* Round bottom corners */
     }
     .portfolio-overlay h3,
     .portfolio-overlay p,
     .portfolio-links,
     .tech-stack {
-        transform: none; /* Remove entry animations */
-        opacity: 1; /* Ensure visible */
+        transform: none !important; /* Remove entry animations */
+        opacity: 1 !important; /* Ensure visible */
         transition: none; /* Remove transitions */
+        visibility: visible !important; /* Force visibility */
     }
-    .portfolio-links .btn { margin: 0.3rem; font-size: 0.9rem; padding: 0.6rem 1.2rem; } /* Adjust button margin if needed */
+    .portfolio-links { 
+        margin-bottom: 1rem; 
+        display: flex; 
+        gap: 0.5rem; 
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+    .portfolio-links .btn { 
+        margin: 0.3rem; 
+        font-size: 0.9rem; 
+        padding: 0.6rem 1.2rem; 
+        display: inline-flex !important; /* Force display */
+        align-items: center;
+        gap: 0.4rem;
+        min-width: 120px;
+        justify-content: center;
+        background: rgba(100, 255, 218, 0.1) !important; /* Ensure background is visible */
+        color: var(--secondary-color) !important; /* Ensure text is visible */
+        border: 1px solid var(--secondary-color) !important; /* Ensure border is visible */
+        opacity: 1 !important; /* Force opacity */
+        visibility: visible !important; /* Force visibility */
+    } /* Ensure buttons are properly displayed */
 
     .company-logo, #audioControlBtn { display: none; } /* Hide clutter on mobile */
     .stars { animation-duration: 400s; } .galaxy { animation-duration: 250s; }
@@ -731,6 +756,14 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(100, 255, 218, 0
     
     /* Better spacing for service and portfolio cards */
     .service-card, .portfolio-card { padding: 1rem; }
+    .portfolio-card { margin-bottom: 1.5rem; }
+    .portfolio-overlay { padding: 1.2rem 1rem; }
+    .portfolio-links .btn { 
+        font-size: 0.85rem; 
+        padding: 0.5rem 1rem; 
+        min-width: 110px;
+        margin: 0.2rem;
+    }
     .skills-grid { grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); }
 }
 
@@ -747,6 +780,17 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(100, 255, 218, 0
     .skills-grid { grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 0.5rem; }
     .skill-item { padding: 0.8rem 0.3rem; }
     .skill-item i { font-size: 1.5rem; }
+    
+    /* Portfolio improvements for very small screens */
+    .portfolio-overlay { padding: 1rem 0.8rem; }
+    .portfolio-links .btn { 
+        font-size: 0.8rem; 
+        padding: 0.4rem 0.8rem; 
+        min-width: 100px;
+        margin: 0.15rem;
+    }
+    .portfolio-overlay h3 { font-size: 1.2rem; }
+    .portfolio-overlay p { font-size: 0.85rem; }
 }
 
 /* --- Testimonials Section --- */
