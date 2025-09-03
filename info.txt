@@ -1,0 +1,87 @@
+JOHN REY Q. CLEMEÑA
+Bachelor of Science in Information Technology
+
+CONTACT INFORMATION
+Phone: 0953 348 0232 (TM) | 0915 946 4548 (Globe)
+Email: joqu.clemena.coc@phinmaed.com
+LinkedIn: https://www.linkedin.com/in/johnrey-cleme%C3%B1a-ab9b2a257/
+GitHub: https://github.com/johnjohn1012
+Facebook: https://www.facebook.com/johnrey.clemena.71
+
+PROFILE SUMMARY
+Hard-working and motivated IT student with a strong foundation in programming, web development, and computer systems servicing. Experienced in developing academic and personal projects using Python, Java, PHP, HTML, CSS, JavaScript, and MySQL. Adept in problem-solving, logical thinking, and resilience. Passionate about continuous learning and applying technical knowledge to real-world challenges. 
+
+Currently pursuing a Bachelor of Science in Information Technology at Phinma Education - Cagayan de Oro College. Completed several projects including:
+- A Python project that converts kilograms to pounds and vice versa using Pydroid 3.
+- A Java program for a cashiering system that allows customers to order and pay for products.
+- A website project for a coffee shop called Comfee Cafe using HTML and CSS.
+
+Also learning through W3Schools courses and actively practicing Java and Python programming this semester. Learned fundamentals such as methods, functions, looping, conditionals, and concatenation of data types.
+
+TECHNICAL SKILLS
+- Programming & Development: Python, Java, PHP, HTML5, CSS, Bootstrap 5, JavaScript, Flutter (Dart)
+- Web Development Tools: VS Code, Atom, IntelliJ, NetBeans, XAMPP
+- Design & Editing Tools: Photoshop, PicsArt, PowerDirector
+- System Skills: Computer Maintenance, Windows Reprogramming & Installation, Encoding, Pydroid 3
+
+CORE SKILLS
+- Problem Solving & Logical Thinking
+- Critical Thinking & Decision-Making
+- Resilience & Adaptability
+- Team Collaboration
+
+EDUCATION & CERTIFICATION
+Bachelor of Science in Information Technology
+Phinma Education – Cagayan de Oro College | 2022 – Present
+
+Technological Vocational Livelihood (Computer System Servicing & Animation)
+Lourdes National High School, Panglao Bohol | 2019 – 2020
+
+National Certificate (NC II) in Computer Maintenance Servicing
+TESDA – Talibon Bohol Training Center | 2019 – 2020 (Valid until 2026)
+
+WORK EXPERIENCE
+Bureau of Fire Protection – Panglao, Bohol
+Work Immersion (Senior High School) | 40 Days
+- Assisted in computer maintenance and troubleshooting tasks.
+
+PROJECTS
+Conversion Tool (Kg ⇄ Lbs)
+Python | Pydroid 3 | 2021 – 2022
+- Developed a simple Python program to convert kilograms to pounds and vice versa.
+
+Cashiering System – Street Foods
+Java | 2022 – 2023
+- Created a Java-based cashiering system for product ordering and payments.
+- Features: menu display, order processing, subtotal & change computation, daily sales tracking.
+GitHub: https://github.com/johnjohn1012/My-Study-Journey/blob/main/Cashiering%20program%20project
+
+Comfee Cafe Website
+HTML | CSS | Atom | Mar–Apr 2023
+- Built a responsive website for a coffee shop featuring services, products, and retail information.
+GitHub: https://github.com/johnjohn1012/My-Study-Journey/blob/main/COMFEE%20CAFE%20WEBSITE%20PROJECT
+
+Lui Finance Solution Website (Practice Project)
+HTML | CSS | Atom | 2022 – 2023
+- Designed a multi-section website (header, services, projects) with a responsive layout.
+
+Cere JUICE Website (Promotional Project)
+HTML | CSS | VS Code | 2022 – 2023
+- Designed a promotional website for a juice product with responsive design.
+
+Personal Portfolio Website
+HTML | CSS | JavaScript | VS Code | 2022 – 2023
+- Built a responsive portfolio website to showcase IT projects and skills.
+
+HRRD Website – Landing Page
+HTML | CSS | JavaScript | VS Code | 2022 – 2023
+- Created a visually appealing and user-friendly landing page.
+
+Stock Management System
+HTML | CSS | JavaScript | PHP | MySQL | VS Code | 2023 – 2024
+- Developed a web-based stock management system for efficient inventory tracking.
+
+ACTIVITIES & LEARNING
+- W3Schools Online Learning: HTML & CSS fundamentals
+- Programming Practice: Java & Python (methods, functions, loops, conditionals, concatenation)
+- Design Thinking Workshops: Teamwork, prototyping, design strategies
