@@ -1541,6 +1541,9 @@ footer {
     /* Contact section mobile adjustments */
     .contact-container { grid-template-columns: 1fr; gap: 2rem; padding: 0 1rem; }
     .contact-info { gap: 1.5rem; }
+}
+
+
     .contact-item { 
         padding: 1.5rem; flex-direction: row; text-align: left;
     }

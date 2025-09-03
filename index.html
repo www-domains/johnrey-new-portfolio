@@ -131,9 +131,121 @@
 
     <footer><p>© 2025 John Rey Q. Clemeña. All rights reserved.</p></footer>
 
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="music/bones.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js" defer></script>
     <script src="chatbot.js" defer></script>
+    
+    <!-- Auto-Play Music Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('backgroundMusic');
+            
+            // Set volume to 30% for comfortable listening
+            audio.volume = 0.3;
+            
+            // Check if music was playing before page change
+            const wasPlaying = localStorage.getItem('musicPlaying') === 'true';
+            const lastPlayTime = localStorage.getItem('lastPlayTime');
+            const currentTime = Date.now();
+            
+            // If music was playing and it's been less than 30 seconds, resume from where it left off
+            if (wasPlaying && lastPlayTime && (currentTime - parseInt(lastPlayTime)) < 30000) {
+                const resumeTime = localStorage.getItem('resumeTime') || 0;
+                audio.currentTime = parseFloat(resumeTime);
+            }
+            
+            // Function to attempt auto-play
+            function attemptAutoPlay() {
+                audio.play().then(() => {
+                    // Save music state when it starts playing
+                    localStorage.setItem('musicPlaying', 'true');
+                    localStorage.setItem('lastPlayTime', Date.now().toString());
+                }).catch(error => {
+                    console.log('Auto-play was prevented by browser:', error);
+                    // Try again after user interaction
+                    document.addEventListener('click', function() {
+                        audio.play().then(() => {
+                            localStorage.setItem('musicPlaying', 'true');
+                            localStorage.setItem('lastPlayTime', Date.now().toString());
+                        }).catch(e => console.log('Still blocked:', e));
+                    }, { once: true });
+                });
+            }
+            
+            // Try to auto-play immediately if it was playing before
+            if (wasPlaying) {
+                attemptAutoPlay();
+            } else {
+                // Try to auto-play for new visitors
+                attemptAutoPlay();
+            }
+            
+            // Also try after a short delay
+            setTimeout(attemptAutoPlay, 500);
+            setTimeout(attemptAutoPlay, 2000);
+            
+            // Save current time periodically while playing
+            setInterval(() => {
+                if (!audio.paused) {
+                    localStorage.setItem('resumeTime', audio.currentTime.toString());
+                    localStorage.setItem('lastPlayTime', Date.now().toString());
+                }
+            }, 1000);
+            
+            // Handle page visibility change (pause when tab is not active)
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    audio.pause();
+                    localStorage.setItem('musicPlaying', 'false');
+                } else {
+                    audio.play().then(() => {
+                        localStorage.setItem('musicPlaying', 'true');
+                        localStorage.setItem('lastPlayTime', Date.now().toString());
+                    }).catch(error => {
+                        console.log('Resume play failed:', error);
+                    });
+                }
+            });
+            
+            // Try to play on any user interaction
+            ['click', 'touchstart', 'keydown'].forEach(event => {
+                document.addEventListener(event, function() {
+                    if (audio.paused) {
+                        audio.play().then(() => {
+                            localStorage.setItem('musicPlaying', 'true');
+                            localStorage.setItem('lastPlayTime', Date.now().toString());
+                        }).catch(e => console.log('Play failed:', e));
+                    }
+                }, { once: true });
+            });
+            
+            // Save state when page is about to unload
+            window.addEventListener('beforeunload', function() {
+                if (!audio.paused) {
+                    localStorage.setItem('musicPlaying', 'true');
+                    localStorage.setItem('resumeTime', audio.currentTime.toString());
+                    localStorage.setItem('lastPlayTime', Date.now().toString());
+                } else {
+                    localStorage.setItem('musicPlaying', 'false');
+                }
+            });
+            
+            // Handle page unload
+            window.addEventListener('unload', function() {
+                if (!audio.paused) {
+                    localStorage.setItem('musicPlaying', 'true');
+                    localStorage.setItem('resumeTime', audio.currentTime.toString());
+                    localStorage.setItem('lastPlayTime', Date.now().toString());
+                }
+            });
+        });
+    </script>
 </body>
 </html>
