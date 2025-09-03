@@ -28,25 +28,25 @@
     let inspectionAttempts = 0;
     let protectionActive = false;
     
-    // Method 1: Only detect when dev tools are actively used
+    // Method 1: Only detect when dev tools are actively used (very conservative)
     function checkDevTools() {
-        const widthThreshold = window.outerWidth - window.innerWidth > 200;
-        const heightThreshold = window.outerHeight - window.innerHeight > 200;
+        const widthThreshold = window.outerWidth - window.innerWidth > 300;
+        const heightThreshold = window.outerHeight - window.innerHeight > 300;
         
         if (widthThreshold || heightThreshold) {
             inspectionAttempts++;
-            // Only block after multiple attempts (user is persistent)
-            if (inspectionAttempts > 5 && !protectionActive) {
+            // Only block after many attempts (user is very persistent)
+            if (inspectionAttempts > 15 && !protectionActive) {
                 protectionActive = true;
                 blockPage();
             }
         } else {
             // Reset counter when dev tools are closed
-            inspectionAttempts = Math.max(0, inspectionAttempts - 1);
+            inspectionAttempts = Math.max(0, inspectionAttempts - 2);
         }
     }
     
-    // Method 2: Console detection (only when actively debugging)
+    // Method 2: Console detection (only when actively debugging - very conservative)
     let debuggerCount = 0;
     setInterval(function() {
         const before = new Date();
@@ -55,34 +55,34 @@
         if (after - before > 100) {
             debuggerCount++;
             // Only block after many debugger hits (active debugging session)
-            if (debuggerCount > 10 && !protectionActive) {
+            if (debuggerCount > 25 && !protectionActive) {
                 protectionActive = true;
                 blockPage();
             }
         }
-    }, 1000);
+    }, 2000);
     
-    // Method 3: Console usage detection (only when heavily used)
+    // Method 3: Console usage detection (only when heavily used - very conservative)
     let consoleUsage = 0;
     setInterval(function() {
-        if (consoleUsage > 50 && !protectionActive) { // Very high threshold
+        if (consoleUsage > 100 && !protectionActive) { // Extremely high threshold
             protectionActive = true;
             blockPage();
         }
-        consoleUsage = Math.max(0, consoleUsage - 2); // Decrease over time
-    }, 3000);
+        consoleUsage = Math.max(0, consoleUsage - 5); // Decrease faster over time
+    }, 5000);
     
-    // Override console methods to detect heavy usage
+    // Override console methods to detect heavy usage (very conservative)
     ['log', 'warn', 'error', 'info', 'debug', 'trace', 'dir', 'dirxml', 'group', 'groupEnd', 'time', 'timeEnd', 'count', 'clear', 'table', 'assert'].forEach(function(method) {
         const original = console[method];
         console[method] = function() {
-            consoleUsage += 3; // Increase counter
+            consoleUsage += 1; // Increase counter slowly
             return original.apply(console, arguments);
         };
     });
     
-    // Less frequent monitoring
-    setInterval(checkDevTools, 1000);
+    // Much less frequent monitoring
+    setInterval(checkDevTools, 3000);
     
     // Disable right-click context menu
     document.addEventListener('contextmenu', function(e) {
