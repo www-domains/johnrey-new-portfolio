@@ -1625,7 +1625,8 @@ footer {
     }
 
     .company-logo, #audioControlBtn { display: none; } /* Hide clutter on mobile */
-    .stars { animation-duration: 400s; } .galaxy { animation-duration: 250s; }
+    .stars { animation-duration: 400s; } 
+    .galaxy { animation-duration: 250s; }
 }
 
 /* Large mobile devices and small tablets */
