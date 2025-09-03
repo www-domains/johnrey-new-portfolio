@@ -144,14 +144,14 @@
 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <a href="https://github.com/www-domains/johnrey-new-portfolio" target="_blank" class="portfolio-image-link">
+                        <a href="https://www-domains.github.io/portfolio/" target="_blank" class="portfolio-image-link">
                             <img src="images/portfolio.png" alt="John Rey New Portfolio Design" loading="lazy">
                         </a>
                         <div class="portfolio-overlay">
                             <h3>Modern Portfolio Design</h3>
                             <p>An updated and modern version of my portfolio with enhanced UI/UX design, featuring improved navigation, animations, and responsive layout.</p>
                             <div class="portfolio-links">
-                                <a href="https://github.com/www-domains/johnrey-new-portfolio" target="_blank" class="btn">
+                                <a href="https://www-domains.github.io/portfolio/" target="_blank" class="btn">
                                     <i class="fas fa-external-link-alt"></i> Live Demo
                                 </a>
                             </div>
@@ -224,12 +224,14 @@
 
                 <div class="portfolio-card">
                     <div class="portfolio-image">
-                        <img src="images/project.png" alt="Academic Programming Projects" loading="lazy">
+                        <a href="https://github.com/www-domains" target="_blank" class="portfolio-image-link">
+                            <img src="images/project.png" alt="Academic Programming Projects" loading="lazy">
+                        </a>
                         <div class="portfolio-overlay">
                             <h3>Academic Programming Collection</h3>
                             <p>A comprehensive collection of programming assignments, algorithms, and projects completed during IT studies, showcasing problem-solving skills and coding proficiency.</p>
                             <div class="portfolio-links">
-                                <a href="#" target="_blank" class="btn">
+                                <a href="https://github.com/www-domains" target="_blank" class="btn">
                                     <i class="fas fa-folder"></i> View Collection
                                 </a>
                             </div>
@@ -336,7 +338,7 @@
                     title: 'Modern Portfolio Design',
                     description: 'An updated and modern version of my portfolio with enhanced UI/UX design, featuring improved navigation, animations, and responsive layout.',
                     image: 'images/portfolio.png',
-                    link: 'https://github.com/www-domains/johnrey-new-portfolio'
+                    link: 'https://www-domains.github.io/portfolio/'
                 },
                 'ceres-juice': {
                     title: 'Ceres Juice - Fruit Juice Website',
@@ -347,13 +349,13 @@
                 'math-quiz': {
                     title: 'Math Quiz Game',
                     description: 'A first-year project creating an interactive math quiz game with scoring system, leaderboard functionality, and game over mechanics. Features engaging gameplay for educational purposes.',
-                    image: 'images/mathquiz.png',
+                    image: 'images/math-quizgame.png',
                     link: 'https://www-domains.github.io/Math-Quiz-Game/'
                 },
                 'gaming': {
                     title: 'Cyborg Gaming Website',
                     description: 'A second-year project cloning a modern gaming website featuring popular games showcase, gaming library management, and streaming platform design. Includes Fortnite, PUBG, Dota 2, CS-GO and more.',
-                    image: 'https://via.placeholder.com/400x250/112240/64ffda?text=Cyborg+Gaming',
+                    image: 'images/cyborg.png',
                     link: 'https://www-domains.github.io/gaming.github.io/'
                 }
             };
@@ -367,10 +369,29 @@
                     
                     // Find matching portfolio data
                     let projectKey = null;
-                    for (const [key, data] of Object.entries(portfolioData)) {
-                        if (alt.includes(data.title.split(' - ')[0]) || data.title.includes(alt.split(' ')[0])) {
-                            projectKey = key;
-                            break;
+                    
+                    // Check for specific project matches first
+                    if (alt.includes('John Rey Clemeña Main Portfolio') || alt.includes('Main Portfolio')) {
+                        projectKey = 'main-portfolio';
+                    } else if (alt.includes('John Rey New Portfolio Design') || alt.includes('New Portfolio Design')) {
+                        projectKey = 'portfolio';
+                    } else if (alt.includes('Harah Rubina Del Dios Farm')) {
+                        projectKey = 'harah';
+                    } else if (alt.includes('LUXE ESTATES')) {
+                        projectKey = 'realstate';
+                    } else if (alt.includes('Ceres Juice')) {
+                        projectKey = 'ceres-juice';
+                    } else if (alt.includes('Math Quiz Game')) {
+                        projectKey = 'math-quiz';
+                    } else if (alt.includes('Cyborg Gaming')) {
+                        projectKey = 'gaming';
+                    } else {
+                        // Fallback to original logic
+                        for (const [key, data] of Object.entries(portfolioData)) {
+                            if (alt.includes(data.title.split(' - ')[0]) || data.title.includes(alt.split(' ')[0])) {
+                                projectKey = key;
+                                break;
+                            }
                         }
                     }
                     
