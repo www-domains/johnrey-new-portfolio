@@ -555,6 +555,14 @@ textarea { resize: vertical; min-height: 120px; }
     transform: none; box-shadow: none;
 }
 
+.submit-btn .btn-loading {
+    display: none;
+}
+
+.submit-btn .btn-loading i {
+    margin-right: 0.5rem;
+}
+
 /* Button styles for portfolio and other buttons */
 button, .btn { 
     background: transparent; color: var(--secondary-color); border: 1px solid var(--secondary-color); 
